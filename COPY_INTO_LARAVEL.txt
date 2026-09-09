@@ -1,0 +1,27 @@
+Copy these into your existing Laravel project (do not copy vendor/):
+
+  app/
+  bootstrap/app.php          (Laravel 11/12 — merge middleware alias if you already customized it)
+  bootstrap/laravel10-kernel-snippet.php
+  config/gymlead.php
+  database/migrations/2026_08_20_*
+  database/seeders/GymLeadSeeder.php
+  database/seeders/DatabaseSeeder.php  (merge the call if you already seed other things)
+  public/assets/
+  resources/views/
+  routes/web.php             (replace default welcome routes)
+  storage/app/imports/
+  storage/app/exports/
+
+Then:
+
+  php artisan migrate
+  php artisan db:seed --class=GymLeadSeeder
+  php artisan storage:link
+
+Log in:
+  admin@gymlead.test  / password
+  staff@gymlead.test  / password
+
+Admin → Settings → paste Google Maps API key (Places API + Geocoding API).
+The key is encrypted in the database and can be rotated anytime. It is not hardcoded.
